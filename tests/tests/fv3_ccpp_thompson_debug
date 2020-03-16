@@ -1,12 +1,12 @@
 ###############################################################################
 #
-#  FV3 GFDL-MPrad test
+#  FV3 CCPP Thompson MP debug test
 #
 ###############################################################################
 
-export TEST_DESCR="Compare FV3 GFDL-MP radiation interaction option with the control"
+export TEST_DESCR="Compare FV3 CCPP Thompson MP debug results with previous trunk version"
 
-export CNTL_DIR=fv3_gfdlmprad
+export CNTL_DIR=fv3_thompson_debug
 
 export LIST_FILES="atmos_4xdaily.tile1.nc \
                    atmos_4xdaily.tile2.nc \
@@ -14,10 +14,30 @@ export LIST_FILES="atmos_4xdaily.tile1.nc \
                    atmos_4xdaily.tile4.nc \
                    atmos_4xdaily.tile5.nc \
                    atmos_4xdaily.tile6.nc \
-                   phyf000.nemsio   \
-                   phyf024.nemsio   \
-                   dynf000.nemsio   \
-                   dynf024.nemsio   \
+                   phyf000.tile1.nc \
+                   phyf000.tile2.nc \
+                   phyf000.tile3.nc \
+                   phyf000.tile4.nc \
+                   phyf000.tile5.nc \
+                   phyf000.tile6.nc \
+                   phyf006.tile1.nc \
+                   phyf006.tile2.nc \
+                   phyf006.tile3.nc \
+                   phyf006.tile4.nc \
+                   phyf006.tile5.nc \
+                   phyf006.tile6.nc \
+                   dynf000.tile1.nc \
+                   dynf000.tile2.nc \
+                   dynf000.tile3.nc \
+                   dynf000.tile4.nc \
+                   dynf000.tile5.nc \
+                   dynf000.tile6.nc \
+                   dynf006.tile1.nc \
+                   dynf006.tile2.nc \
+                   dynf006.tile3.nc \
+                   dynf006.tile4.nc \
+                   dynf006.tile5.nc \
+                   dynf006.tile6.nc \
                    RESTART/coupler.res \
                    RESTART/fv_core.res.nc \
                    RESTART/fv_core.res.tile1.nc \
@@ -38,45 +58,40 @@ export LIST_FILES="atmos_4xdaily.tile1.nc \
                    RESTART/fv_tracer.res.tile4.nc \
                    RESTART/fv_tracer.res.tile5.nc \
                    RESTART/fv_tracer.res.tile6.nc \
-                   RESTART/sfc_data.tile1.nc \
-                   RESTART/sfc_data.tile2.nc \
-                   RESTART/sfc_data.tile3.nc \
-                   RESTART/sfc_data.tile4.nc \
-                   RESTART/sfc_data.tile5.nc \
-                   RESTART/sfc_data.tile6.nc \
                    RESTART/phy_data.tile1.nc \
                    RESTART/phy_data.tile2.nc \
                    RESTART/phy_data.tile3.nc \
                    RESTART/phy_data.tile4.nc \
                    RESTART/phy_data.tile5.nc \
                    RESTART/phy_data.tile6.nc \
-                   out_grd.glo_30m"
-
+                   RESTART/sfc_data.tile1.nc \
+                   RESTART/sfc_data.tile2.nc \
+                   RESTART/sfc_data.tile3.nc \
+                   RESTART/sfc_data.tile4.nc \
+                   RESTART/sfc_data.tile5.nc \
+                   RESTART/sfc_data.tile6.nc"
 
 export_fv3
-
-export TASKS=192
 export NODES=$(expr $TASKS / $TPN + 1)
 
-DT_ATMOS="1200"
-export LGFDLMPRAD=.true.
-export EFFR_IN=.true.
+export FHMAX=6
+export FDIAG=3
 
-export OUTPUT_GRID="'gaussian_grid'"
-export OUTPUT_FILE="'nemsio'"
-export WRITE_NEMSIOFLIP=.true.
-export WRITE_FSYNCFLAG=.true.
+export DT_ATMOS="600"
+export IMP_PHYSICS=8
+export DNATS=0
+export DO_SAT_ADJ=.F.
+export LRADAR=.T.
+export LTAEROSOL=.T.
 
-export CPL=.true.
-export CPLWAV=.T.
-export atm_model='fv3'
-export atm_petlist_bounds="0 149"
-export wav_model='ww3'
-export wav_petlist_bounds="150 191"
-export coupling_interval_sec=3600.0  #coupling time step, want it to be multiple of 1800 and FV3 time step
-export NEMS_CONFIGURE="nems.configure.blocked_atm_wav.IN"
+export FV3_RUN=ccpp_gsd_run.IN
+export CCPP_SUITE=FV3_GFS_v15_thompson
+export CCPP_LIB_DIR=ccpp/lib
+export INPUT_NML=ccpp_gsd.nml.IN
 
-export INPUT_NML=gfdlmp.nml.IN
-export FV3_RUN=gfdlmp_run.IN
+export HYBEDMF=.T.
+export DO_MYNNEDMF=.F.
+export IMFSHALCNV=2
+export IMFDEEPCNV=2
 
 RUN_SCRIPT=rt_fv3.sh

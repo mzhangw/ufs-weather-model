@@ -152,7 +152,7 @@
        random_clds    = .false.
        trans_trac     = .true.
        cnvcld         = .false.
-       imfshalcnv     = 2
+       imfshalcnv     = -1
        imfdeepcnv     = 2
        cdmbgwd        = 3.5, 0.25       ! NCEP default
        prslrd0        = 0.

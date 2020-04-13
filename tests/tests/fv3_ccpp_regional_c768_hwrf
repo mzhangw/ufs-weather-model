@@ -1,0 +1,33 @@
+###############################################################################
+#
+#  FV3 CCPP regional c768 test with HWRF physics suite
+#
+###############################################################################
+
+export TEST_DESCR="Compare FV3 CCPP regional c768 with HWRF physics suite results with previous trunk version"
+
+export CNTL_DIR=fv3_regional_c768_hwrf
+
+export LIST_FILES="  atmos_4xdaily.nc \
+                     fv3_history2d.nc \
+                       fv3_history.nc "
+
+export_fv3
+
+export TASKS=480
+export WLCLK=30
+
+export ICLOUD=3
+export IOVR_LW=4
+export IOVR_SW=4
+export OZ_PHYS_OLD=.F.
+export OZ_PHYS_NEW=.T.
+
+export RUN_SCRIPT=rt_fv3.sh
+export FV3_RUN=ccpp_regional_hwrf_run.IN
+
+export CCPP_SUITE=HAFS_v0_hwrf
+export CCPP_LIB_DIR=ccpp/lib
+export INPUT_NML=ccpp_regional_c768_hwrf.nml.IN
+export LRADAR=.T.
+export WRITE_DOPOST=.true.

@@ -65,8 +65,8 @@
        p_fac = 0.1
        k_split  = 4
        n_split  = 5
-       nwat = 4
-       na_init = @[NA_INIT]
+       nwat = 6
+       na_init = 1
        d_ext = 0.0
        dnats = 1
        fv_sg_adj = 300
@@ -92,7 +92,7 @@
        hord_tr = 8
        adjust_dry_mass = .F.
        consv_te = 0.
-       do_sat_adj = .F.
+       do_sat_adj = .T.
        consv_am = .F.
        fill = .T.
        dwind_2d = .F.
@@ -129,19 +129,7 @@
        use_ufo        = .true.
        pre_rad        = .false.
        ncld           = 5
-       imp_physics    = 15
-       icloud         = @[ICLOUD]
-       iovr_lw        = @[IOVR_LW]
-       iovr_sw        = @[IOVR_SW]
-       spec_adv       = .true.
-       RHGRD            = 0.98
-       hwrf_samfdeep  = .true.     ! HWRF SASdeep
-       hwrf_samfshal  = .true.     ! HWRF SASshal
-       asolfac_deep   = 0.89       ! HWRF SASdeep; GFS SAS:0.958
-       asolfac_shal   = 0.89       ! HWRF SASdeep; GFS SAS:0.958
-       hurr_pbl       = .T.        ! HWRF moninedmf
-       moninq_fac     = -1.0       !HWRF moninedmf
-       lradar         = @[LRADAR]
+       imp_physics    = 11
        pdfcld         = .false.
        fhswr          = 3600.
        fhlwr          = 3600.
@@ -154,7 +142,7 @@
        isol           = 2
        lwhtr          = .true.
        swhtr          = .true.
-       cnvgwd         = .true.     !true ->no gwdc
+       cnvgwd         = .true.
        shal_cnv       = .true.
        cal_pre        = .false.
        redrag         = .true.
@@ -162,6 +150,8 @@
        hybedmf        = @[HYBEDMF]
        satmedmf       = @[SATMEDMF]
        lheatstrg      = @[LHEATSTRG]
+       hurr_pbl       = .T.        ! HWRF moninedmf
+       moninq_fac     = -1.0       !HWRF moninedmf
        random_clds    = .false.
        trans_trac     = .true.
        cnvcld         = .false.
@@ -188,6 +178,7 @@
        oz_phys        = .F.
        oz_phys_2015   = .T.
        h2o_phys       = .true.
+       nst_anl        = .true. 
        nstf_name      = 2,0,0,0,0
        cplflx         = .F.
        iau_delthrs    = 6

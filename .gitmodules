@@ -1,7 +1,7 @@
 [submodule "FV3"]
 	path = FV3
-	url = https://github.com/NCAR/fv3atm
-	branch = dtc/hwrf-physics
+	url = https://github.com/mzhangw/fv3atm
+	branch = hwrf_cld3d
 [submodule "NEMS"]
 	path = NEMS
 	url = https://github.com/NOAA-EMC/NEMS

@@ -73,7 +73,7 @@
   nwat = 4
   na_init = 0
   d_ext = 0.
-  dnats = 1
+  dnats = 0
   fv_sg_adj = 450
   d2_bg = 0.
   nord = 2
